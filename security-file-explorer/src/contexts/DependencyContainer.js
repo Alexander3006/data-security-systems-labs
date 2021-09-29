@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
 export const DependencyContainer = React.createContext({
-    chipher: null,
-    fileExplorer: null,
+  chipher: null,
+  fileExplorer: null,
 });

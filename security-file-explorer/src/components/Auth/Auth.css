@@ -1,12 +1,12 @@
 .auth {
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    margin-top: 20vh;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 20vh;
 }
 
 .token-input {
-    text-align: center;
-    background-color: rgba(0, 225, 255, 0.671);
+  text-align: center;
+  background-color: rgba(0, 225, 255, 0.671);
 }

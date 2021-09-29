@@ -1,14 +1,14 @@
 .item-file {
-    text-align: center;
-    padding: 3px;
-    background-color: rgba(188, 143, 143, 0.192);
-    margin-bottom: 3px;
+  text-align: center;
+  padding: 3px;
+  background-color: rgba(188, 143, 143, 0.192);
+  margin-bottom: 3px;
 }
 
 .item-file:hover {
-    background-color: chartreuse;
+  background-color: chartreuse;
 }
 
 .item-file:active {
-    background-color: rgb(141, 22, 22);
+  background-color: rgb(141, 22, 22);
 }
