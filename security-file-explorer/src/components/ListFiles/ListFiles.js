@@ -3,7 +3,7 @@ import React, {useContext, useEffect, useState} from 'react';
 import {ItemFile} from '../ItemFile/ItemFile';
 import {GlobalFileContext} from '../../contexts/GlobalFilesContext';
 import {DependencyContainer} from '../../contexts/DependencyContainer';
-import {CREATE, READ, SAVE, user_config} from '../../configs/permission.config';
+import {CREATE, READ, user_config} from '../../configs/permission.config';
 import {UserContext} from '../../contexts/UserContext';
 
 const {permissions} = user_config;

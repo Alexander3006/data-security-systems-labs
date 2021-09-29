@@ -13,6 +13,6 @@ export const user_config = {
 
   permissions: {
     [ADMIN]: [CREATE, READ, SAVE],
-    [USER]: [],
+    [USER]: [READ],
   },
 };
