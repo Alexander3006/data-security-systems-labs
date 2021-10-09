@@ -10,12 +10,14 @@ import {UserContext} from '../../contexts/UserContext';
 import {HashRouter, Route} from 'react-router-dom';
 import {MainPage} from '../../pages/MainPage';
 import {AuthPath} from '../../pages/AuthPage';
+import {disks, user_config} from '../../configs/permission.config';
 
 function App() {
   //init dependecies
   const chipher = new Chipher(chipher_config);
-  const fileExplorer = new FileExplorer(file_explorer_config, chipher);
+  const fileExplorer = new FileExplorer({...file_explorer_config, disks}, chipher);
   const [role, setRole] = new React.useState('');
+  fileExplorer.setDisk(user_config.spaces[role]);
   const [target_file, set_target_file] = React.useState('');
 
   return (

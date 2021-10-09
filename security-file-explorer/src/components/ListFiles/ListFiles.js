@@ -19,7 +19,7 @@ export const ListFiles = () => {
   useEffect(() => {
     if (!userPermission.includes(READ)) return;
     (async () => {
-      const files = (await fileExplorer?.getAllFiles()) ?? [];
+      const files = (await fileExplorer?.getAll()) ?? [];
       setFiles(files);
     })();
   }, []);
