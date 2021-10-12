@@ -1,0 +1,40 @@
+version: "3.9"
+services: 
+  db:
+    restart: always
+    image: postgres
+    container_name: postgres_security_system
+    env_file:
+      - .env 
+    environment:
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_DB: ${DB_DATABASE}
+    volumes: 
+      - ./pgdata:/var/lib/postgresql/data
+    ports: 
+      - '5432:5432'
+    networks: 
+      - backend
+
+  security_system:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: security_system
+    container_name: security_system
+    restart: always
+    env_file:
+      - .env
+    ports: 
+      - '3000:3000'
+    # volumes: 
+    #   - .:/SecuritySystem # for dev autoreload
+    depends_on:
+      - db
+    networks: 
+      - backend
+
+networks: 
+  backend: 
+    driver: bridge
