@@ -1,4 +1,4 @@
-const login = async ({connection}, context) => {
+const refresh = async ({connection}, context) => {
   const {
     services: {
       [interfaces.IUser]: user,
@@ -38,5 +38,5 @@ const login = async ({connection}, context) => {
 new adapters.HttpEndpoint({
   method: 'POST',
   url: '/auth/refresh',
-  handler: login,
+  handler: refresh,
 });
