@@ -39,7 +39,7 @@ class User {
         [id],
       )
       .then(({rows: [attempts]}) => {
-        if (!attempts >= MAX_BAD_ATTEMPTS) return true;
+        if (attempts < MAX_BAD_ATTEMPTS) return true;
         return this.db.query(`UPDATE "User" SET "active" = false WHERE "id" = $1`, [id]);
       });
   }
