@@ -6,11 +6,13 @@ const createUserController = async ({connection}, context) => {
     const body = await connection.receiveBody().then((res) => JSON.parse(res));
     const {email, password} = body;
     const isValid = user.validate({email, password});
+    logger.info(isValid);
     if (!isValid) {
       connection.error(400);
       return;
     }
     await user.create({email, password});
+    logger.info('User created');
     connection.send(true);
   } catch (err) {
     logger.error(`Create user error`, err);

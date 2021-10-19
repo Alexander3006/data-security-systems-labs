@@ -25,6 +25,7 @@ const interfaces = {
 
   IUser: require('./domain/User/IUser'),
   IQuestion: require('./domain/Question/IQuestion'),
+  ILogging: require('./infrastructure/Logger/ILogging'),
 };
 
 const ports = {
@@ -54,9 +55,10 @@ const services = {
   Redis: './Framework/Infrastructure/Redis.js',
   Database: './Framework/Infrastructure/Database.js',
   Router: './Framework/Services/Router/RouteService.js',
-
+  DBLogger: './infrastructure/Logger/DBLogger.js',
   User: './domain/User/User.js',
   Question: './domain/Question/Question.js',
+  Logging: './infrastructure/Logger/Logging.js',
 };
 
 module.exports = {

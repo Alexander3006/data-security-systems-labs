@@ -6,6 +6,7 @@ const login = async ({connection}, context) => {
     const body = await connection.receiveBody().then((res) => JSON.parse(res));
     const {email, password} = body;
     const user_e = await user.findOne(email);
+    logger.warning('Try get non exist user', {grade: 5});
     if (!user_e) {
       connection.error(400);
       return;
@@ -16,6 +17,7 @@ const login = async ({connection}, context) => {
     }
     const isValidPass = await user.comparePassword(password, user_e.password);
     if (!isValidPass) {
+      logger.warning('Password guessing', {grade: 7, userId: user_e.id});
       connection.error(400);
       return;
     }

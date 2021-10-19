@@ -19,6 +19,7 @@ const refresh = async ({connection}, context) => {
     });
     const token = connection.getSessionToken();
     if (!isTrue) {
+      logger.warning('Wrong answer', {grade: 6, userId: user_s.id});
       await user.incAttempts(user_s.id);
       await connection.deleteSession(token);
       connection.error(400);

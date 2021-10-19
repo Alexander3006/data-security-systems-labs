@@ -11,6 +11,8 @@ CREATE TABLE IF NOT EXISTS "Logging" (
     "id" SERIAL PRIMARY KEY NOT NULL,
     "type" varchar NOT NULL,
     "message" text,
+    "grade" INT DEFAULT 0,
+    "user_id" INTEGER REFERENCES "User"("id"),
     "created_at" TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT now()
 );
 
