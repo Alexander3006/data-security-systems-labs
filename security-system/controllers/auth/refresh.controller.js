@@ -10,6 +10,10 @@ const refresh = async ({connection}, context) => {
     const {id, answer} = await connection.receiveBody().then((res) => JSON.parse(res));
     const user_s = await connection.getSession();
     if (!user_s) {
+      logger.silly({
+        message: 'Trying to access without a session',
+        grade: 3,
+      });
       connection.error(403);
       return;
     }

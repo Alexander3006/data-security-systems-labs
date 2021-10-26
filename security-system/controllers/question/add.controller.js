@@ -4,8 +4,11 @@ const addQuestion = async ({connection}, context) => {
   } = context;
   try {
     const user = await connection.getSession();
-    nodeApi.console.dir(user, {depth: 100});
     if (!user) {
+      logger.silly({
+        message: 'Trying to access without a session',
+        grade: 3,
+      });
       connection.error(403);
       return;
     }

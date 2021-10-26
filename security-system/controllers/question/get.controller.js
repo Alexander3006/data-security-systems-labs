@@ -5,6 +5,10 @@ const addQuestion = async ({connection}, context) => {
   try {
     const user = await connection.getSession();
     if (!user) {
+      logger.silly({
+        message: 'Trying to access without a session',
+        grade: 3,
+      });
       connection.error(403);
       return;
     }
