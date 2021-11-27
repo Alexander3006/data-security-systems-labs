@@ -43,7 +43,7 @@ const decrypt = (data, privateKey) =>
   console.dir({
     isEqual: decrypted === data,
     data,
-    encrypted,
+    encrypted: encrypted.toString(),
     decrypted,
   });
 })();
